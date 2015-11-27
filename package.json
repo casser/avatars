@@ -3,7 +3,8 @@
   "version"       : "0.0.1",
   "main"          : "out/index.js",
   "scripts"       : {
-    "watch"       : "babel -V"
+    "build"       : "babel --stage=0 -D -d out src",
+    "watch"       : "babel -w --stage=0 -D -d out src"
   },
   "dependencies"  : {
 
