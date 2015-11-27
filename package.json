@@ -1,0 +1,11 @@
+{
+  "name"          : "mb-avatars",
+  "version"       : "0.0.1",
+  "main"          : "out/index.js",
+  "scripts"       : {
+    "watch"       : "babel -V"
+  },
+  "dependencies"  : {
+
+  }
+}
