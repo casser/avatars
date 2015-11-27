@@ -7,6 +7,6 @@
     "watch"       : "babel -w --stage=0 -D -d out src"
   },
   "dependencies"  : {
-
+    "libsvg"      : "^0.6.1"
   }
 }

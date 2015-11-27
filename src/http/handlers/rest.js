@@ -139,7 +139,9 @@ export class RestHandler extends Handler {
                     if(result instanceof Result){
                         return result;
                     }else{
-                        return Result.create(result,200);
+                        return Result.create(JSON.stringify(result,null,'  '),200,{
+                            'Content-Type': 'application/json'
+                        });
                     }
                 });
                 promise = promise.catch(result=>{
@@ -168,10 +170,8 @@ export class RestHandler extends Handler {
                     }
                 });
                 promise = promise.then(result=>{
-                    res.writeHead(result.status,{
-                        'Content-Type': 'application/json'
-                    });
-                    res.end(JSON.stringify(result.value,null,'  '));
+                    res.writeHead(result.status,result.headers);
+                    res.end(result.value);
                 });
 
                 return promise;
