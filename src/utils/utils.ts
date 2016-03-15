@@ -1,8 +1,8 @@
 export class Utils {
-    merge(...args){
+    static merge(...args){
         return this.patch({},...args);
     }
-    patch(...args){
+    static patch(...args){
         var n,o = args.shift();
         while(args.length){
             n = args.shift();
@@ -14,7 +14,7 @@ export class Utils {
         }
         return o;
     }
-    cleanup(object){
+    static cleanup(object){
         for(var i in object){
             var v = object[i];
             if(
@@ -28,6 +28,10 @@ export class Utils {
         }
         return object;
     }
+
+    static getRandomInt (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 }
 
-export default new Utils();
+export default Utils;

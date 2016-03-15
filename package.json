@@ -1,12 +1,18 @@
 {
-  "name"          : "mb-avatars",
-  "version"       : "0.0.1",
-  "main"          : "out/index.js",
-  "scripts"       : {
-    "build"       : "babel --stage=0 -D -d out src",
-    "watch"       : "babel -w --stage=0 -D -d out src"
+  "name"                       : "avatars",
+  "version"                    : "0.0.1",
+  "registry"                   : "github",
+  "vendor"                     : "ecmal",
+  "main"                       : "server",
+  "scripts"                    : {
+    "build"                    : "elp compile -o ../server/out",
+    "watch"                    : "elp compile -w -o ../server/out"
   },
-  "dependencies"  : {
-    "libsvg"      : "^0.6.1"
+  "libraries"                  : {
+    "ecmal/core"     : "0.0.1",
+    "ecmal/node"     : "0.0.1",
+    "ecmal/runtime"  : "0.0.2",
+    "ecmal/browser"  : "0.0.1",
+    "ecmal/http"     : "0.0.1"
   }
 }

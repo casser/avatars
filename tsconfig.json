@@ -1,0 +1,11 @@
+{
+  "compilerOptions" : {
+    "declaration":true,
+    "module": "system",
+    "target": "es5",
+    "inlineSourceMap":true,
+    "inlineSources":true,
+    "experimentalDecorators":true,
+    "noLib":true
+  }
+}
