@@ -1,10 +1,10 @@
 /**
  * Created by Grigor on 12/18/15.
  */
-import {Xml,XmlNode} from '../../utils/xml';
-import Utils from '../../utils/utils';
-import {Paths} from '../../models/path';
-import {Shape} from '../../models/shape';
+import {Xml,XmlNode} from '../utils/xml';
+import Utils from '../utils/utils';
+import {Paths} from '../models/path';
+import {Shape} from '../models/shape';
 
 export class Builder{
 
@@ -106,7 +106,7 @@ export class Builder{
                     cy: path.cy,
                     r: path.r,
                     gradientUnits: path.gradientUnits,
-                    gradientTransform: (path.gradientTransform)?path.gradientTransform:"inherit",
+                    gradientTransform: (path.gradientTransform)?path.gradientTransform:"",
 
                     id: id
                 }, gradChildNode);
@@ -118,7 +118,7 @@ export class Builder{
                     x2: path.x2,
                     y1: path.y1,
                     y2: path.y2,
-                    gradientTransform: (path.gradientTransform)?path.gradientTransform:"inherit",
+                    gradientTransform: (path.gradientTransform)?path.gradientTransform:"",
                     id: id
                 }, gradChildNode);
                 break;

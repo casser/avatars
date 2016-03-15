@@ -1,12 +1,12 @@
 import {Rest, Result} from 'http/rest';
-import {AvatarFactory} from '../models/avatarfactory';
-import {Avatar} from '../models/avatar';
-import {Shape} from '../models/shape';
-import {SIShape} from '../models/shape';
-import {AvatarBuilder} from '../services/builder/avatarbuilder';
-import {ShapeBuilder} from '../services/builder/shapebuilder';
-import {Generator} from '../services/builder/generator';
-import {Field} from '../models/model';
+import {AvatarFactory} from '../../shared/models/avatarfactory';
+import {Avatar} from '../../shared/models/avatar';
+import {Shape} from '../../shared/models/shape';
+import {SIShape} from '../../shared/models/shape';
+import {AvatarBuilder} from '../../shared/builder/avatarbuilder';
+import {ShapeBuilder} from '../../shared/builder/shapebuilder';
+import {Generator} from '../../shared/builder/generator';
+import {Field} from '../../shared/models/model';
 
 @Rest('/avatar')
 class ResourceAvatar {

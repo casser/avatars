@@ -13,11 +13,11 @@ export class Config {
             path : '/api'
         },
         files : {
-            path :  PATH.resolve(__filename,'../')
+            path :  PATH.resolve(__filename,'../../../../')
         }
     };
     constructor(){
-        //console.info(this);
+        console.info("FILE PATH=>",PATH.resolve(__filename,'../../../../'));
     }
 }
 

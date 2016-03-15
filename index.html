@@ -1,86 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="webkid react starterkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
-    <title>A4vatars</title>
-
-    <style type="text/css">
-        /**
-         * Hide when Angular is not yet loaded and initialized
-         */
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none !important;
-        }
-    </style>
-
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
+    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1">
+    <script src="out/runtime/package.js" main></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
 </head>
 <body>
-<body ng-app="myApp" layout="row"  ng-cloak  >
-<div ng-controller="ExampleCtrl as ctrl">
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>Name</label>
-        <input ng-model="ctrl.name">
-    </md-input-container>
-    <md-button ng-click="ctrl.say_hello()" class="md-raised">Say Hello</md-button>
-    <p>{{msg}}</p>
-</div>
-
-<div ng-controller="ExampleTwoCtrl as ctrl2">
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>Name</label>
-        <input ng-model="ctrl2.name">
-    </md-input-container>
-    <md-button ng-click="ctrl.second()" class="md-raised">Press Me</md-button>
-
-    <p>{{ctrl2.text}}</p>
-</div>
-<script src="scripts/lib/system.js"></script>
-
+<style>
+    #svg-element{
+        width: 150px;
+    }
+    #svg-canvas{
+        width: 450px;
+    }
+</style>
+<div id="shape"></div>
+<div id="avatar"></div>
 <script>
-    System.config({
-        // or 'traceur' or 'typescript'
-        transpiler: 'typescript',
-        // or traceurOptions or typescriptOptions
-        meta:{
-            "angular": {
-                "format": "global",
-                "exports": "angular"
-            },
-            "angular-animate": {
-                "deps": [
-                    "angular"
-                ]
-            },
-            "angular-route": {
-                "deps": [
-                    "angular"
-                ]
-            },
-            "angular-aria": {
-                "deps": [
-                    "angular"
-                ]
-            },
-            "angular-material": {
-                "deps": [
-                    "angular"
-                ]
-            }
-        },
-        map:{
-            'angular'         : "bower_components/angular/angular.js",
-            'angular-animate'     : "bower_components/angular-animate/angular-animate.js",
-            'angular-route'     : "bower_components/angular-route/angular-route.js",
-            'angular-aria'     : "bower_components/angular-aria/angular-aria.js",
-            'angular-material'     : "bower_components/angular-material/angular-material.js",
-            'typescript'  : 'scripts/lib/typescript.js'
-        }
-    });
-    System.import('scripts/main.ts');
-
+    System.import('avatars/client/index').catch(function(e){
+        console.error(e);
+    })
 </script>
 </body>
 </html>

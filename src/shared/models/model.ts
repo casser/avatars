@@ -33,7 +33,6 @@ export function Field(...args){
             metaData.fields[def.name] = def.type;
 
             //temporary solution
-            console.log((def.owner.parent)?"true":"false");
             if(def.owner.parent.constructor !== Model ){
                 var parentMetadata =  Reflect.getMetadata('field:type',def.owner.parent.constructor);
                 var parentFields = parentMetadata.fields;

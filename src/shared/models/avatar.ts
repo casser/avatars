@@ -15,7 +15,7 @@ export class Avatar extends Model{
     public humanbody       :SIShape;
 
     @Field
-    public clothes          :SIShape;
+    public clothes         :SIShape;
 
     @Field
     public facehighlight   :SIShape;

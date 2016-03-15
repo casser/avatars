@@ -2,14 +2,14 @@
  * Created by Grigor on 12/18/15.
  */
 import {Builder} from './builder'
-import {Xml} from '../../utils/xml';
-import Utils from '../../utils/utils';
-import {Avatar} from '../../models/avatar';
-import {Shape} from '../../models/shape';
-import {SIShape} from '../../models/shape';
-import {BFShape} from '../../models/shape';
-import {RLShape} from '../../models/shape';
-import {Paths} from '../../models/path';
+import {Xml} from '../utils/xml';
+import Utils from '../utils/utils';
+import {Avatar} from '../models/avatar';
+import {Shape} from '../models/shape';
+import {SIShape} from '../models/shape';
+import {BFShape} from '../models/shape';
+import {RLShape} from '../models/shape';
+import {Paths} from '../models/path';
 
 
 

@@ -1,7 +1,7 @@
 import {Cached} from "common/decorators";
 import {HttpService} from './services/http';
 import {Config} from './config';
-import {Xml} from './utils/xml';
+import {Xml} from '../shared/utils/xml';
 
 // rest api endpoints
 import './api/test';
