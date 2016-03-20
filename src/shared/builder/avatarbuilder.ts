@@ -21,7 +21,6 @@ export class AvatarBuilder extends Builder{
         this.model = model;
         this.isCanvasDrawing = true;
         this.skinColor = model.skinColor
-
     }
 
     renderTemplate(){
@@ -32,6 +31,7 @@ export class AvatarBuilder extends Builder{
                 "viewBox":"0 0 200 200",
                 "xmlns":"http://www.w3.org/2000/svg",
                 "version":"1.1"},[
+                Xml.node('defs',{"id":"definition"}),
                 Xml.node('g',{"id":"svga-group-wrapper"},[
                     Xml.node('g',{"id":"backs-single"}),
                     Xml.node('g',{"id":"svga-group-subwrapper"}, [
@@ -76,8 +76,8 @@ export class AvatarBuilder extends Builder{
                             Xml.node('g',{"id":"glasses-single"})
                         ])
                     ])
-                ]),
-                Xml.node('defs',{"id":"definition"})]
+                ])
+                ]
             );
 
     }

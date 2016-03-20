@@ -10,7 +10,8 @@ export class Builder{
 
     protected template:XmlNode;
     protected isCanvasDrawing:any;
-    protected skinColor:any
+    protected skinColor:any;
+    static idCounter:number=0;
 
 
     constructor(){
@@ -100,7 +101,7 @@ export class Builder{
         });
         switch (path.type) {
             case 'radial':
-                id = "radialgradient-"   + Utils.getRandomInt(500, 1500);
+                id = "radialgradient-" + Builder.idCounter++;
                 defNode = Xml.node('radialGradient', {
                     cx: path.cx,
                     cy: path.cy,
@@ -112,7 +113,7 @@ export class Builder{
                 }, gradChildNode);
                 break;
             case 'linear':
-                id = "lineargradient-"   + Utils.getRandomInt(500, 1500);
+                id = "lineargradient-" + Builder.idCounter++;
                 defNode = Xml.node('linearGradient', {
                     x1: path.x1,
                     x2: path.x2,

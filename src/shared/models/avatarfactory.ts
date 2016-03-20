@@ -54,7 +54,7 @@ export class AvatarFactory {
         return new SIShape({shape_index:shapeIndex,single:config.glasses.shapes[shapeIndex].single,color_index:0,color:'#e05f48'})
     }
 
-    static getShapesByZone(zone:string,gender:string='male'){
+    static getShapesByZone(zone:string,gender:string='female'){
         var shapes = [];
         var config = (gender=="male") ?  maleData : femaleData;
         var zoneData = config[zone];
@@ -67,8 +67,9 @@ export class AvatarFactory {
         for(var i=0;i<zoneData.shapes.length;i++){
             var shapeData = zoneData.shapes[i],
                 shape;
+            var  data = shapeData;
+            data.shape_index=i;
             if(shapeData.single){
-                let data = shapeData;
                 if(defaultColor){
                     data.color_index = defaultColorIndex;
                     data.color = defaultColor;
@@ -76,7 +77,6 @@ export class AvatarFactory {
                 shape = new SIShape(data)
             }
             if(shapeData.left){
-                let data = shapeData;
                 if(defaultColor){
                     data.color_index = defaultColorIndex;
                     data.color = defaultColor;
@@ -85,7 +85,6 @@ export class AvatarFactory {
                 shape = new RLShape(data)
             }
             if(shapeData.front){
-                let data = shapeData;
                 if(defaultColor){
                     data.color_index = defaultColorIndex;
                     data.color = defaultColor;

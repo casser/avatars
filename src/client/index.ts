@@ -1,30 +1,122 @@
 /**
  * Created by Grigor on 2/19/16.
  */
-import {AvatarFactory} from '../shared/models/avatarfactory';
-import {Avatar} from '../shared/models/avatar';
-import {Shape} from '../shared/models/shape';
-import {SIShape} from '../shared/models/shape';
-import {AvatarBuilder} from '../shared/builder/avatarbuilder';
-import {ShapeBuilder} from '../shared/builder/shapebuilder';
-import {Generator} from '../shared/builder/generator';
-import {Utils} from '../shared/utils/utils';
-export  class MyApp {
-  constructor(){
-      var avatar :Avatar =  AvatarFactory.createRandomAvatar('male');
-      var avatarBuilder = new AvatarBuilder(avatar);
-      document.getElementById('avatar').innerHTML = Generator.construct(avatarBuilder);
-      var shapeList =  AvatarFactory.getShapesByZone('glasses');
-      shapeList.map((shape)=>{
-          document.getElementById('shape').innerHTML +=Generator.construct(new ShapeBuilder(shape));
-      })
-      setInterval(()=>{
-          console.log("timeout");
-          avatar.glasses = shapeList[Utils.getRandomInt(1,shapeList.length)];
-          var avatarBuilder = new AvatarBuilder(avatar);
-          document.getElementById('avatar').innerHTML = Generator.construct(avatarBuilder);
+import Angular from "mangular/annotate";
+import {Config} from "mangular/annotate";
+import {Run} from "mangular/annotate";
+import {Inject} from "mangular/annotate";
+import "mangular/angular/material";
+import "mangular/angular/ui-router";
+import "mangular/angular/table";
 
-      },2000);
-  }
+
+import "./components/layouts/privateLayout";
+import "./components/layouts/publicLayout";
+import "./components/pages/dashboard";
+import "./directives/menuLink";
+import "./directives/menuToggle";
+import "./services/menu";
+
+class MyApp {
+
+    @Config
+    static config(
+        @Inject('$urlRouterProvider') $urlRouterProvider,
+        @Inject('$stateProvider') $stateProvider,
+        @Inject('$mdThemingProvider') $mdThemingProvider){
+        $mdThemingProvider.definePalette('docs-blue', $mdThemingProvider.extendPalette('blue', {
+            '50': '#DCEFFF',
+            '100': '#AAD1F9',
+            '200': '#7BB8F5',
+            '300': '#4C9EF1',
+            '400': '#1C85ED',
+            '500': '#106CC8',
+            '600': '#0159A2',
+            '700': '#025EE9',
+            '800': '#014AB6',
+            '900': '#013583',
+            'contrastDefaultColor': 'light',
+            'contrastDarkColors': '50 100 200 A100',
+            'contrastStrongLightColors': '300 400 A200 A400'
+        }));
+        $mdThemingProvider.definePalette('docs-red', $mdThemingProvider.extendPalette('red', {
+            'A100': '#DE3641'
+        }));
+        $mdThemingProvider.theme('docs-dark', 'default')
+            .primaryPalette('yellow')
+            .dark();
+        $mdThemingProvider.theme('default')
+            .primaryPalette('docs-blue')
+            .accentPalette('docs-red');
+
+        $urlRouterProvider.otherwise('/dashboard');
+        $stateProvider
+            .state('public', {
+                abstract: true,
+                views: {
+                    '@' : {
+                        template: '<wc-public-layout></wc-public-layout>',
+                    }
+                },
+                data: {
+                    access  : 'UNAUTHORIZED'
+                }
+            })
+            .state('private', {
+                abstract: true,
+                views: {
+                    '@' : {
+                        template: '<wc-private-layout></wc-private-layout>',
+                    }
+                },
+                data: {
+                    access: 'AUTHORIZED'
+                }
+            })
+            .state('public.login', {
+                url         : '/login',
+                template    : `login`,
+
+            })
+            .state('private.dashboard',{
+                url         : '/dashboard',
+                template    : '<dashboard></dashboard>',
+                data        : {
+                    title   : 'Dashboard'
+                }
+            })
+            .state('private.monitor',{
+                url         : '/monitor',
+                template    : `monitor`,
+                data        : {
+                    title   : 'Monitor'
+                }
+            })
+            .state('private.users',{
+                url         : '/users',
+                template    : `users`,
+                data        : {
+                    title   : 'Users'
+                }
+            })
+            .state('private.groups',{
+                url         : '/groups',
+                template    : `groups`,
+                data        : {
+                    title   : 'Groups'
+                }
+            })
+            .state('private.roles',{
+                url         : '/roles',
+                template    : `roles`,
+                data        : {
+                    title   : 'Roles'
+                }
+            });
+    }
+
 }
-export  default new MyApp();
+
+
+Angular.start('avatars/client/index');
+

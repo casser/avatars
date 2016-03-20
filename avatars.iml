@@ -6,7 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/avatars_data" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/out/mangular" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/out" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />

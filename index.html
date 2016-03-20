@@ -5,21 +5,20 @@
     <link rel="shortcut icon" href="#">
     <title>Title</title>
     <meta name="viewport" content="initial-scale=1">
-    <script src="out/runtime/package.js" main></script>
+    <script src="../../out/runtime/package.js" main></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="../../out/avatars/client/assets/css/app.css">
+    <style>
+        #svg-element{
+            width: 100%;
+            padding-top: 5px;
+            background: #F6F6F6;
+        }
+    </style>
 </head>
-<body>
-<style>
-    #svg-element{
-        width: 150px;
-    }
-    #svg-canvas{
-        width: 450px;
-    }
-</style>
-<div id="shape"></div>
-<div id="avatar"></div>
+
+<body ui-view>
 <script>
     System.import('avatars/client/index').catch(function(e){
         console.error(e);

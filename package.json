@@ -13,6 +13,7 @@
     "ecmal/node"     : "0.0.1",
     "ecmal/runtime"  : "0.0.2",
     "ecmal/browser"  : "0.0.1",
-    "ecmal/http"     : "0.0.1"
+    "ecmal/http"     : "0.0.1",
+    "ecmal/mangular" : "0.0.1"
   }
 }
